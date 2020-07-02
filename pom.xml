@@ -21,22 +21,11 @@
 		<java.version>1.8</java.version>
 		<downloadSources>true</downloadSources>
 		<downloadJavadocs>true</downloadJavadocs>
+		<oracle-ojdbc.version>12.2.0.1</oracle-ojdbc.version>
 	</properties>
 
 	<dependencies>
 		<!-- spring security -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-
-		<!-- spring security test -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
 
 		<!-- spring mvc, rest -->
 		<dependency>
@@ -48,12 +37,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
-		<!-- in-memory database  -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
 		</dependency>
 
 		<!-- unit test rest -->
@@ -76,6 +59,26 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>${oracle-ojdbc.version}</version>
+			<exclusions>
+				<exclusion>  <!-- declare the exclusion here -->
+					<groupId>com.oracle.jdbc</groupId>
+					<artifactId>xmlparserv2</artifactId>
+				</exclusion>
+				<exclusion>  <!-- declare the exclusion here -->
+					<groupId>com.oracle.jdbc</groupId>
+					<artifactId>xdb6</artifactId>
+				</exclusion>
+				<exclusion>  <!-- declare the exclusion here -->
+					<groupId>com.oracle.jdbc</groupId>
+					<artifactId>orai18n</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 	</dependencies>

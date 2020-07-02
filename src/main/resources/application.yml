@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLPDB1.localdomain)))
+    username: SIGNING_SERVICE_LOCAL
+    password: SIGNING_SERVICE_LOCAL
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximumPoolSize: 20
+      minimumIdle: 2
+      poolName: Hikari-Partner-Signing-Service-Pool
+      idleTimeout: 60000
+      maxLifetime: 300000
+---
+
+spring:
+  profiles: local-db
